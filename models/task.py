@@ -14,3 +14,7 @@ class task(models.Model):
 
     # Relaciones:
     sprint_id = fields.Many2one('managechicote.sprint', 'Sprint', ondelete='cascade', required=True)
+    technology_ids = fields.Many2many("managechicote.technology", string="Tecnologías", ondelete="cascade",
+                                relation="task_technology",
+                                column1="technology_ids",
+                                column2="task_ids")
