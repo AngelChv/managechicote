@@ -13,4 +13,4 @@ class sprint(models.Model):
     end_date = fields.Datetime(string="Fecha de finalización")
 
     # Relaciones:
-    task_id = fields.Many2one('sprint.task', string="Task", ondelete='cascade', required=True)
+    task_id = fields.One2many('managechicote.task', "sprint_id", "Task" )

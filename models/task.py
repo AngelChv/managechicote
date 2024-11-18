@@ -13,4 +13,4 @@ class task(models.Model):
     is_paused = fields.Boolean(string="Pausada")
 
     # Relaciones:
-    sprint_id = fields.One2many('managechicote.sprint', 'task_id', string="Sprint")
+    sprint_id = fields.Many2one('managechicote.sprint', 'Sprint', ondelete='cascade', required=True)
