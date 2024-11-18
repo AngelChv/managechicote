@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="view_managechicote_sprint_tree">
+            <field name="name">view_managechicote_sprint_tree</field>
+            <field name="model">managechicote.sprint</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form -->
+        <record model="ir.ui.view" id="view_managechicote_sprint_form">
+            <field name="name">view_managechicote_sprint_form</field>
+            <field name="model">managechicote.sprint</field>
+            <field name="arch" type="xml">
+                <form string="form_sprint">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions -->
+        <record model="ir.actions.act_window" id="action_managechicote_sprint_form">
+            <field name="name">Sprint</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">managechicote.sprint</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Sprint
+                </p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos elementos.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menú raiz -->
+        <menuitem name="Manage" id="menu_managechicote_root"/>
+
+        <!-- Segundo nivel -->
+        <menuitem name="Management" id="menu_managechicote"
+                  parent="menu_managechicote_root"/>
+
+        <!-- Tercer nivel -->
+        <menuitem name="Sprint" id="menu_managechicote_sprint"
+                  parent="menu_managechicote" action="action_managechicote_sprint_form"/>
+    </data>
+</odoo>

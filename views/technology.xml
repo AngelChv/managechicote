@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="view_managechicote_technology_tree">
+            <field name="name">view_managechicote_technology_tree</field>
+            <field name="model">managechicote.technology</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="photo" widget="image"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form -->
+        <record model="ir.ui.view" id="view_managechicote_technology_form">
+            <field name="name">view_managechicote_technology_form</field>
+            <field name="model">managechicote.technology</field>
+            <field name="arch" type="xml">
+                <form string="form_technology">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="photo" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions -->
+        <record model="ir.actions.act_window" id="action_managechicote_technology_form">
+            <field name="name">Technology</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">managechicote.technology</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Technology
+                </p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos elementos.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menú raiz -->
+        <menuitem name="Manage" id="menu_managechicote_root"/>
+
+        <!-- Segundo nivel -->
+        <menuitem name="Management" id="menu_managechicote"
+                  parent="menu_managechicote_root"/>
+
+        <!-- Tercer nivel -->
+        <menuitem name="Technology" id="menu_managechicote_technology"
+                  parent="menu_managechicote" action="action_managechicote_technology_form"/>
+    </data>
+</odoo>

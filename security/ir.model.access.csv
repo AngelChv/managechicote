@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_managechicote_history,managechicote.history,model_managechicote_history,base.group_user,1,1,1,1
+access_managechicote_project,managechicote.project,model_managechicote_project,base.group_user,1,1,1,1
+access_managechicote_sprint,managechicote.sprint,model_managechicote_sprint,base.group_user,1,1,1,1
+access_managechicote_task,managechicote.task,model_managechicote_task,base.group_user,1,1,1,1
+access_managechicote_technology,managechicote.technology,model_managechicote_technology,base.group_user,1,1,1,1

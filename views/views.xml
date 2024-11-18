@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="managechicote.list">
+      <field name="name">managechicote list</field>
+      <field name="model">managechicote.managechicote</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="managechicote.action_window">
+      <field name="name">managechicote window</field>
+      <field name="res_model">managechicote.managechicote</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="managechicote.action_server">
+      <field name="name">managechicote server</field>
+      <field name="model_id" ref="model_managechicote_managechicote"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="managechicote" id="managechicote.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="managechicote.menu_1" parent="managechicote.menu_root"/>
+    <menuitem name="Menu 2" id="managechicote.menu_2" parent="managechicote.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="managechicote.menu_1_list" parent="managechicote.menu_1"
+              action="managechicote.action_window"/>
+    <menuitem name="Server to list" id="managechicote" parent="managechicote.menu_2"
+              action="managechicote.action_server"/>
+-->
+  </data>
+</odoo>
