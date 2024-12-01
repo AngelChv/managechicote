@@ -17,6 +17,7 @@ class sprint(models.Model):
 
     # Relaciones:
     task_id = fields.One2many('managechicote.task', "sprint_id", "Task" )
+    project_id = fields.Many2one('managechicote.project', 'Project', ondelete='cascade', required=True)
 
     # Métodos:
     @api.depends('start_date', 'duration')

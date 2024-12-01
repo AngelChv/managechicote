@@ -18,3 +18,4 @@ class task(models.Model):
                                 relation="task_technology",
                                 column1="technology_ids",
                                 column2="task_ids")
+    history_id = fields.Many2one('managechicote.history', 'History', ondelete='cascade', required=True)
