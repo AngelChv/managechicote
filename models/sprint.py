@@ -20,7 +20,7 @@ class sprint(models.Model):
     project_id = fields.Many2one('managechicote.project', 'Project', ondelete='cascade', required=True)
 
     # Métodos:
-    @api.depends('start_date', 'duration')
+    @api.depends('start_date', 'duration'   )
     def _get_end_date(self):
         for s in self:
             if isinstance(s.start_date, datetime.date) and s.duration > 0:
