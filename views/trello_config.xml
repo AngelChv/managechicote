@@ -6,7 +6,7 @@
             <field name="name">managechicote.trello.config.form</field>
             <field name="model">managechicote.trello.config</field>
             <field name="arch" type="xml">
-                <form string="Configuración de Trello">
+                <form string="Configuración de Trello" create="false" edit="true">
                     <sheet>
                         <group name="group_top">
                             <group name="group_left">
@@ -23,15 +23,11 @@
         <!-- Acción para la vista -->
         <record id="action_trello_config" model="ir.actions.act_window">
             <field name="name">Configuración de Trello</field>
-            <field name="type">ir.actions.act_window</field>
             <field name="res_model">managechicote.trello.config</field>
             <field name="view_mode">form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    Configuración
-                </p>
-                <p>Haz clic en <strong>'Crear'</strong> para añadir nueva configuración.</p>
-            </field>
+            <field name="view_id" ref="view_trello_config_form"/>
+            <field name="target">current</field>
+            <field name="context">{'active_id': 1}</field> <!-- Esto asegura que siempre se cargue el registro 1 -->
         </record>
 
         <!-- Menú raíz -->
