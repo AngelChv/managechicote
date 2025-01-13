@@ -7,7 +7,7 @@ class developer(models.Model):
     _inherit = 'res.partner'
 
     # Relaciones:
-    technologies = fields.Many2many('manage.technology', string='Technologies',
+    technologies = fields.Many2many('managechicote.technology', string='Technologies',
                                     relation = 'developer_technologies',
                                     column1='developer_id',
                                     column2='technologies_id')

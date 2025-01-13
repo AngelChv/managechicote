@@ -15,7 +15,7 @@ class technology(models.Model):
                                    relation="task_technology",
                                    column1="task_ids",
                                    column2="technology_ids")
-    developers = fields.Many2many('manage.developer', string='Developers',
+    developers = fields.Many2many('res.partner', string='Developers',
                                     relation='developer_technologies',
                                     column2='developer_id',
                                     column1='technologies_id')
