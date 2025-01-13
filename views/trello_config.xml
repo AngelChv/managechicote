@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista del formulario -->
+        <record id="view_trello_config_form" model="ir.ui.view">
+            <field name="name">managechicote.trello.config.form</field>
+            <field name="model">managechicote.trello.config</field>
+            <field name="arch" type="xml">
+                <form string="Configuración de Trello">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="api_key"/>
+                                <field name="token"/>
+                                <field name="board_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para la vista -->
+        <record id="action_trello_config" model="ir.actions.act_window">
+            <field name="name">Configuración de Trello</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">managechicote.trello.config</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Configuración
+                </p>
+                <p>Haz clic en <strong>'Crear'</strong> para añadir nueva configuración.</p>
+            </field>
+        </record>
+
+        <!-- Menú raíz -->
+        <menuitem name="ManageChicote" id="menu_managechicote_root" sequence="1"/>
+
+        <!-- Segundo nivel -->
+        <menuitem name="Trello" id="menu_managechicote_trello"
+                  parent="menu_managechicote_root"/>
+
+        <!-- Tercer nivel con acción -->
+        <menuitem name="Configuración de Trello" id="menu_managechicote_trello_action"
+                  parent="menu_managechicote_trello" action="action_trello_config"/>
+    </data>
+</odoo>
+
