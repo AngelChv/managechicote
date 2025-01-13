@@ -30,6 +30,16 @@
             <field name="context">{'active_id': 1}</field> <!-- Esto asegura que siempre se cargue el registro 1 -->
         </record>
 
+        <!-- Importar tareas -->
+        <record id="action_import_trello_tasks" model="ir.actions.server">
+            <field name="name">Importar Tareas de Trello</field>
+            <field name="model_id" ref="model_managechicote_task"/>
+            <field name="state">code</field>
+            <field name="code">
+                model.import_trello_tasks()
+            </field>
+        </record>
+
         <!-- Menú raíz -->
         <menuitem name="ManageChicote" id="menu_managechicote_root" sequence="1"/>
 
@@ -40,6 +50,9 @@
         <!-- Tercer nivel con acción -->
         <menuitem name="Configuración de Trello" id="menu_managechicote_trello_action"
                   parent="menu_managechicote_trello" action="action_trello_config"/>
+
+        <menuitem name="Importar Tareas" id="menu_managechicote_task_import_trello"
+          parent="menu_managechicote_trello" action="action_import_trello_tasks"/>
     </data>
 </odoo>
 
