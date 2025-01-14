@@ -58,16 +58,5 @@
             <field name="view_id" ref="view_managechicote_developer_form"></field>
             <field name="act_window_id" ref="action_managechicote_developer_form"></field>
         </record>
-
-        <!-- Menú raiz -->
-        <menuitem name="Manage" id="menu_managechicote_root"/>
-
-        <!-- Segundo nivel -->
-        <menuitem name="Management" id="menu_managechicote"
-                  parent="menu_managechicote_root"/>
-
-        <!-- Tercer nivel -->
-        <menuitem name="Devs" id="menu_managechicote_developer"
-                  parent="menu_managechicote" action="action_managechicote_developer_form"/>
     </data>
 </odoo>

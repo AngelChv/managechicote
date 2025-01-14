@@ -34,6 +34,7 @@
         'views/technology.xml',
         'views/developer.xml',
         'views/trello_config.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

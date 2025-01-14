@@ -47,16 +47,5 @@
                 </p>
             </field>
         </record>
-
-        <!-- Menú raiz -->
-        <menuitem name="Manage" id="menu_managechicote_root"/>
-
-        <!-- Segundo nivel -->
-        <menuitem name="Management" id="menu_managechicote"
-                  parent="menu_managechicote_root"/>
-
-        <!-- Tercer nivel -->
-        <menuitem name="Project" id="menu_managechicote_project"
-                  parent="menu_managechicote" action="action_managechicote_project_form"/>
     </data>
 </odoo>

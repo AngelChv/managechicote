@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Vista tree -->
+        <record model="ir.ui.view" id="view_managechicote_trello_tree">
+            <field name="name">view_managechicote_trello_tree</field>
+            <field name="model">managechicote.trello.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="api_key"/>
+                    <field name="token"/>
+                    <field name="board_id"/>
+                </tree>
+            </field>
+        </record>
+
         <!-- Vista del formulario -->
         <record id="view_trello_config_form" model="ir.ui.view">
             <field name="name">managechicote.trello.config.form</field>
@@ -24,7 +37,7 @@
         <record id="action_trello_config" model="ir.actions.act_window">
             <field name="name">Configuración de Trello</field>
             <field name="res_model">managechicote.trello.config</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_trello_config_form"/>
             <field name="target">current</field>
             <field name="context">{'active_id': 1}</field> <!-- Esto asegura que siempre se cargue el registro 1 -->
@@ -39,20 +52,6 @@
                 model.import_trello_tasks()
             </field>
         </record>
-
-        <!-- Menú raíz -->
-        <menuitem name="ManageChicote" id="menu_managechicote_root" sequence="1"/>
-
-        <!-- Segundo nivel -->
-        <menuitem name="Trello" id="menu_managechicote_trello"
-                  parent="menu_managechicote_root"/>
-
-        <!-- Tercer nivel con acción -->
-        <menuitem name="Configuración de Trello" id="menu_managechicote_trello_action"
-                  parent="menu_managechicote_trello" action="action_trello_config"/>
-
-        <menuitem name="Importar Tareas" id="menu_managechicote_task_import_trello"
-          parent="menu_managechicote_trello" action="action_import_trello_tasks"/>
     </data>
 </odoo>
 

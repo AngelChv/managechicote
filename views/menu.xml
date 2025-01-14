@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz -->
+        <menuitem name="ManageChicote" id="menu_managechicote_root" sequence="1"/>
+
+        <!-- Segundo nivel -->
+        <menuitem name="Management" id="menu_managechicote"
+                  parent="menu_managechicote_root"/>
+
+        <menuitem name="Trello" id="menu_managechicote_trello"
+                  parent="menu_managechicote_root"/>
+
+        <!-- Tercer nivel-->
+        <!-- Manage -->
+        <menuitem name="Tasks" id="menu_managechicote_task"
+                  parent="menu_managechicote" action="action_managechicote_task_form"/>
+
+        <menuitem name="Devs" id="menu_managechicote_developer"
+                  parent="menu_managechicote" action="action_managechicote_developer_form"/>
+
+        <menuitem name="History" id="menu_managechicote_history"
+                  parent="menu_managechicote" action="action_managechicote_history_form"/>
+
+        <menuitem name="Project" id="menu_managechicote_project"
+                  parent="menu_managechicote" action="action_managechicote_project_form"/>
+
+        <menuitem name="Sprint" id="menu_managechicote_sprint"
+                  parent="menu_managechicote" action="action_managechicote_sprint_form"/>
+
+        <menuitem name="Technology" id="menu_managechicote_technology"
+                  parent="menu_managechicote" action="action_managechicote_technology_form"/>
+
+        <!-- Trello -->
+        <menuitem name="Configuración de Trello" id="menu_managechicote_trello_action"
+                  parent="menu_managechicote_trello" action="action_trello_config"/>
+
+        <menuitem name="Importar Tareas" id="menu_managechicote_task_import_trello"
+                  parent="menu_managechicote_trello" action="action_import_trello_tasks"/>
+    </data>
+</odoo>
