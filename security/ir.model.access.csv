@@ -4,4 +4,4 @@ access_managechicote_project,managechicote.project,model_managechicote_project,b
 access_managechicote_sprint,managechicote.sprint,model_managechicote_sprint,base.group_user,1,1,1,1
 access_managechicote_task,managechicote.task,model_managechicote_task,base.group_user,1,1,1,1
 access_managechicote_technology,managechicote.technology,model_managechicote_technology,base.group_user,1,1,1,1
-access_managechicote_trello_config,managechicote.trello.config,model_managechicote_trello_config,base.group_user,1,1,1,1
+access_managechicote_trello_config,managechicote.trello.config,model_managechicote_trello_config,base.group_user,1,1,0,0
