@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import logging
 from datetime import datetime
-
+from pytz import UTC
 import requests
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 
+_logger = logging.getLogger(__name__)
 
 class task(models.Model):
     _name = "managechicote.task"
@@ -43,6 +45,17 @@ class task(models.Model):
             if not found:
                 t.sprint_id = False
 
+    @staticmethod
+    def convert_iso_to_odoo_format(iso_date):
+        """Convierte una fecha ISO 8601 al formato esperado por Odoo (%Y-%m-%d %H:%M:%S)."""
+        if iso_date:
+            try:
+                # Convertir de ISO 8601 (UTC) al formato Odoo
+                date_utc = datetime.strptime(iso_date, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=UTC)
+                return date_utc.strftime('%Y-%m-%d %H:%M:%S')
+            except ValueError as e:
+                raise UserError(f"Error al convertir la fecha: {iso_date}. Detalles: {e}")
+        return False
 
     @api.model
     def import_trello_tasks(self):
@@ -66,11 +79,22 @@ class task(models.Model):
 
         # Crear tareas en Odoo basadas en los datos de Trello
         for card in trello_data:
-            # Puedes personalizar cómo quieres que se creen las tareas
             self.create({
                 'name': card.get('name'),
                 'description': card.get('desc'),
-                'start_date': card.get('dateStart'),
-                'end_date': card.get('dateEnd'),
-                'is_paused': card.get('paused', False),  # Asume que el campo `paused` existe en Trello
+                'start_date': self.convert_iso_to_odoo_format(card.get('start')),
+                'end_date': self.convert_iso_to_odoo_format(card.get('due')),
+                'is_paused': card.get('paused', False),
             })
+
+        _logger.info("La importación desde Trello ha terminado.")
+        # Notificación al usuario usando action_notify
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+            'params': {
+                'title': 'Trello Importación',
+                'message': 'Se han importado correctamente todas las tareas desde Trello.',
+                'sticky': False,  # La notificación desaparece después de un tiempo.
+            },
+        }
