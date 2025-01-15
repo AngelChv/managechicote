@@ -31,3 +31,6 @@ Este repositorio contiene el código fuente del módulo **"manage"**, desarrolla
 1. Accede al módulo "manage" desde el panel principal de Odoo.
 2. Configura la conexión con Trello proporcionando tu API Key, Token y el ID del tablero.
 3. Crea y organiza proyectos, sprints y tareas directamente desde el módulo.
+
+## Memoria del proyecto
+[Enlace al manual](https://github.com/AngelChv/managechicote/blob/master/Chicote_Veganzones_Angel_proyectomanage.pdf)
